@@ -1,0 +1,299 @@
+---
+title: "New file"
+description: "Description of your new file."
+---
+
+デザインテスト用のファイル
+
+---
+title: "New file"
+description: "Description of your new file."
+---
+
+# h1：吾輩は猫である。名前はまだ無い。
+
+## h2：吾輩は猫である。名前はまだ無い。
+
+### h3：吾輩は猫である。名前はまだ無い。
+
+吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+
+* 吾輩は猫である。
+
+* 名前はまだ無い。
+
+* どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。
+
+1. 吾輩は猫である。
+
+2. 名前はまだ無い。
+
+3. どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。
+
+
+
+| ヘッダー1    | ヘッダー2    | ヘッダー3             | ヘッダー4                                                                                        |
+| -------- | -------- | ----------------- | -------------------------------------------------------------------------------------------- |
+| コンテンツ1   | コンテンツ2   | コンテンツ3            | コンテンツ4                                                                                       |
+| 吾輩は猫である。 | 名前はまだ無い。 | どこで生れたかとんと見当がつかぬ。 | 何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。 |
+
+![](prairie-dog-433851_1280.jpg)
+
+
+
+<Info>
+  Callout Content
+</Info>
+
+<Check>
+  Callout Content
+</Check>
+
+<Note>
+  Callout Content
+</Note>
+
+<Tip>
+  Callout Content
+</Tip>
+
+<Warning>
+  Callout Content
+</Warning>
+
+> 吾輩は猫である。名前はまだ無い。どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+
+
+
+<Accordion title="吾輩は猫である。" description="名前はまだ無い。" defaultOpen={true} icon="arrow">
+  どこで生れたかとんと見当がつかぬ。何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+</Accordion>
+
+
+
+<AccordionGroup>
+  <Accordion title="New Accordion" defaultOpen="false">
+    吾輩は猫である。
+  </Accordion>
+
+  <Accordion title="New Accordion" defaultOpen="false">
+    名前はまだ無い。
+  </Accordion>
+</AccordionGroup>
+
+
+
+<Card title="New Card" icon="bolt" horizontal={true} href="https://codepen.io/tmgmgmg/pen/wvbjgGG">
+  Insert content here
+</Card>
+
+<Card title="New Card" icon="bolt" img="prairie-dog-433851_1280.jpg">
+  Insert content here
+</Card>
+
+<CardGroup cols="2">
+  <Card title="Card" icon="sparkles">
+    カードグループ
+  </Card>
+
+  <Card title="Card" icon="sparkles">
+    カードグループ
+  </Card>
+
+  <Card title="Card" icon="house" color="orange">
+    増やせる
+  </Card>
+
+  <Card title="Card" icon="check" color="blue">
+    増やせる
+  </Card>
+</CardGroup>
+
+
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>White Dot Particle Visualizer with Edge Darkening</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        let width, height;
+        let particles = [];
+        const spacing = 12;
+        let mouse = { x: 0, y: 0 };
+        let ripples = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            initParticles();
+        }
+
+        class Particle {
+            constructor(x, y) {
+                this.x = x;
+                this.y = y;
+                this.baseX = x;
+                this.baseY = y;
+                this.size = 2;
+                this.baseBrightness = this.calculateBaseBrightness();
+                this.brightness = this.baseBrightness;
+            }
+
+            calculateBaseBrightness() {
+                let distanceToCenter = Math.hypot(this.x - width/2, this.y - height/2);
+                let maxDistance = Math.hypot(width/2, height/2);
+                return 0.2 + 0.5 * (1 - (distanceToCenter / maxDistance));
+            }
+
+            update() {
+                let totalDisplacement = { x: 0, y: 0 };
+
+                ripples.forEach(ripple => {
+                    let dx = this.x - ripple.x;
+                    let dy = this.y - ripple.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    let maxDistance = ripple.radius;
+                    
+                    if (distance < maxDistance) {
+                        let force = Math.sin((distance / maxDistance) * Math.PI) * ripple.strength;
+                        let angle = Math.atan2(dy, dx);
+                        totalDisplacement.x += Math.cos(angle) * force * 2;
+                        totalDisplacement.y += Math.sin(angle) * force * 2;
+                    }
+                });
+
+                this.x = this.baseX + totalDisplacement.x;
+                this.y = this.baseY + totalDisplacement.y;
+
+                // Gradually return to base position
+                this.x += (this.baseX - this.x) * 0.2;
+                this.y += (this.baseY - this.y) * 0.2;
+
+                // Update brightness based on displacement
+                let displacement = Math.hypot(this.x - this.baseX, this.y - this.baseY);
+                let brightnessChange = displacement * 0.08;
+                this.brightness = this.baseBrightness + brightnessChange;
+                
+                // Gradually return to base brightness
+                this.brightness += (this.baseBrightness - this.brightness) * 0.1;
+            }
+
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.brightness})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function initParticles() {
+            particles = [];
+            for (let y = 0; y < height; y += spacing) {
+                for (let x = 0; x < width; x += spacing) {
+                    particles.push(new Particle(x, y));
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, width, height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+
+            // Update and remove old ripples
+            ripples = ripples.filter(ripple => {
+                ripple.radius += 4;
+                ripple.strength *= 0.97;
+                return ripple.strength > 0.01;
+            });
+
+            requestAnimationFrame(animate);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        canvas.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+            ripples.push({ x: mouse.x, y: mouse.y, radius: 0, strength: 0.4 });
+        });
+
+        resizeCanvas();
+        animate();
+    </script>
+</body>
+</html>
+```
+
+
+
+<Tabs>
+  <Tab title="Tab 1">
+    吾輩は猫である。
+  </Tab>
+
+  <Tab title="Tab 2">
+    名前はまだ無い。
+  </Tab>
+
+  <Tab title="Tab 3">
+    どこで生れたかとんと見当がつかぬ。
+  </Tab>
+
+  <Tab title="Tab 4">
+    何でも薄暗いじめじめした所でニャーニャー泣いていた事だけは記憶している。
+  </Tab>
+
+  <Tab title="Tab 5">
+    吾輩はここで始めて人間というものを見た。しかもあとで聞くとそれは書生という人間中で一番獰悪な種族であったそうだ。この書生というのは時々我々を捕えて煮て食うという話である。しかしその当時は何という考もなかったから別段恐しいとも思わなかった。
+  </Tab>
+</Tabs>
+
+
+
+<Steps>
+  <Step title="Step 1">
+    吾輩は猫である。
+  </Step>
+
+  <Step title="Step 2">
+    名前はまだ無い。
+  </Step>
+
+  <Step title="Step 3">
+    どこで生れたかとんと見当がつかぬ。
+  </Step>
+</Steps>
+
+
+
+<Frame as="div">
+  Adjust the caption and image of your Frame component here.
+</Frame>
+
+
+
+<Update label="11/17/2024" description="version 1.0">
+  Add your changelog here
+</Update>
